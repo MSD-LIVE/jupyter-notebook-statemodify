@@ -11,7 +11,7 @@ jobs:
 
     steps:
     # Step 1: Checkout the repository
-    - name: Checkout repository with LFS
+    - name: Checkout repository
       uses: actions/checkout@v3
 
     # Step 2: Log in to GitHub Container Registry
