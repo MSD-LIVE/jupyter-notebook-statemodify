@@ -56,3 +56,6 @@ RUN chmod -R 777 /usr/src/statemodify
 # copy the files to users home dir instead of using the exisitng symlink 
 COPY msdlive_hooks /srv/jupyter/extensions/msdlive_hooks
 RUN pip install /srv/jupyter/extensions/msdlive_hooks
+
+# copy the notebooks to the container
+COPY notebooks /home/jovyan/notebooks

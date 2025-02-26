@@ -24,3 +24,7 @@ to pull from s3 if you want to test locally**
    # make sure you are in the jupyter-notebook-statemodify folder
    docker compose up
    ```
+
+
+## MSD-LIVE customization via plugin:
+Input data dir needed to be writable so removed symlink from user's home dir that points to /data (was read only) and copies from /data to user's home dir 
