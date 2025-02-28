@@ -1,6 +1,6 @@
 # Extend the MSD-LIVE Centos 7 Jupyter Notebook container
 # Use a mutli-stage build to keep the final image small
-FROM ghcr.io/msd-live/jupyter/python-notebook:dev as build-image
+FROM ghcr.io/msd-live/jupyter/python-notebook:latest as build-image
 USER root
 
 # make a directory to store builds in 
@@ -23,7 +23,7 @@ RUN cd /usr/src/statemodify \
 RUN rm -rf /usr/src/statemodify/statemod_upper_co/.git
 
 
-FROM ghcr.io/msd-live/jupyter/python-notebook:dev as main-image
+FROM ghcr.io/msd-live/jupyter/python-notebook:latest as main-image
 USER root
 
 # Add core libraries needed to run Fortran model
