@@ -12,3 +12,5 @@ services:
     volumes:
       - ./data:/home/jovyan/data
       - ./notebooks:/home/jovyan/notebooks
+    environment:
+      - DATA_DIR=/home/jovyan/data
