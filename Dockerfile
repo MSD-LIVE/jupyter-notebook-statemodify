@@ -59,5 +59,3 @@ RUN pip install /srv/jupyter/extensions/msdlive_hooks
 
 # copy the notebooks to the container
 COPY notebooks /home/jovyan/notebooks
-
-ENV DATA_DIR=/${NB_USER}/data
