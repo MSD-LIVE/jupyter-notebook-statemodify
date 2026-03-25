@@ -3,7 +3,7 @@
 FROM ghcr.io/msd-live/jupyter/datascience-notebook:latest as build-image
 USER root
 
-# make a directory to store builds in 
+# make a directory to store builds in
 RUN mkdir -p /usr/src/statemodify
 
 # Remove all the .git folders so they are not included in the final image.  Some of them
@@ -33,7 +33,7 @@ COPY --from=build-image "/usr/src/statemodify" "/usr/src/statemodify"
 
 RUN cd /usr/src/statemodify/statemodify && pip install -e .
 
-# Before building, we have to update the makefiles because there are problems that 
+# Before building, we have to update the makefiles because there are problems that
 # prevent it from compiling (search for MSD-LIVE in the makefiles for more details)
 COPY ./makefile.statemod_gunnison_sjd /usr/src/statemodify/statemod_gunnison_sjd/src/main/fortran/makefile
 COPY ./makefile.statemod_upper_co /usr/src/statemodify/statemod_upper_co/src/main/fortran/makefile
@@ -52,8 +52,8 @@ RUN cd /usr/src/statemodify/statemod_upper_co/src/main/fortran \
 
 RUN chmod -R 777 /usr/src/statemodify
 
-# install the msdlive plugin in order for the msdlive labs extension to discover it via entry points and 
-# copy the files to users home dir instead of using the exisitng symlink 
+# install the msdlive plugin in order for the msdlive labs extension to discover it via entry points and
+# copy the files to users home dir instead of using the exisitng symlink
 COPY msdlive_hooks /srv/jupyter/extensions/msdlive_hooks
 RUN pip install /srv/jupyter/extensions/msdlive_hooks
 
